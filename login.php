@@ -1,3 +1,17 @@
+<?php
+if (isset($_POST['login']) && isset($_POST['Usser']) && isset($_POST['Pass'])) {
+    @session_start();
+    include 'clases/clase_usuario.php';
+    $usuario = new usuario();
+        $data = $usuario->login_usuario($_POST['Usser'],md5($_POST['Pass']));
+        if (count($data) == 0) { ?>
+            <script> sweetAlert('Los datos son incorectos...', 'Vuelva a intentarlo!', 'error'); </script>
+        <?php }else{
+            $_SESSION['Id'] = $data[0][0];
+            $_SESSION['Nivel'] = $data[0][4];
+            header('location: admin/');
+        }
+}?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,20 +42,6 @@
     </style>
 </head>
 <body>
-<?php
-if (isset($_POST['login']) && isset($_POST['Usser']) && isset($_POST['Pass'])) {
-    @session_start();
-    include 'clases/clase_usuario.php';
-    $usuario = new usuario();
-        $data = $usuario->login_usuario($_POST['Usser'],md5($_POST['Pass']));
-        if (count($data) == 0) { ?>
-            <script> sweetAlert('Los datos son incorectos...', 'Vuelva a intentarlo!', 'error'); </script>
-        <?php }else{
-            $_SESSION['Id'] = $data[0][0];
-            $_SESSION['Nivel'] = $data[0][4];
-            header('location: admin/');
-        }
-}?>
     <div class="container" style="margin-top: 5%;" >
         <div class="row">
             <div class="col-md-5 col-md-offset-7">

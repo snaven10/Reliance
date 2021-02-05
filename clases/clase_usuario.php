@@ -20,11 +20,14 @@ class usuario{
 										usuario.Usuario,
 										usuario.Nivel,
 										usuario.Estado,
-										user_sucu.Id_sucursal
+										user_sucu.Id_sucursal,
+										sucursales.Sucursal
 									FROM
 										usuario
 									LEFT JOIN user_sucu ON
 										usuario.Id_usuario = user_sucu.Id_usuario
+									LEFT  JOIN sucursales ON
+										user_sucu.Id_sucursal = sucursales.Id_sucursales
 									WHERE Nivel != 3');
 			$q->execute();
 			return $q->fetchAll();
@@ -41,11 +44,14 @@ class usuario{
 										usuario.Usuario,
 										usuario.Nivel,
 										usuario.Estado,
-										user_sucu.Id_sucursal
+										user_sucu.Id_sucursal,
+										sucursales.Sucursal
 									FROM
 										usuario
 									LEFT JOIN user_sucu ON
-										usuario.Id_usuario = user_sucu.Id_usuario');
+										usuario.Id_usuario = user_sucu.Id_usuario
+									LEFT  JOIN sucursales ON
+										user_sucu.Id_sucursal = sucursales.Id_sucursales');
 			$q->execute();
 			return $q->fetchAll();
 			$this->pdo = null;
@@ -86,6 +92,30 @@ class usuario{
 			$q->bindParam(3,$Password);
 			$q->bindParam(4,$Nivel);
 			$q->bindParam(5,$Estado);
+			$q->execute();
+			$this->pdo = null;
+			return 0;
+		} catch (PDOException $e) {
+			echo 'Error '.$e->getMessage();
+		}
+		return 1;
+	}
+	public function asignar_sucursal($Id_user,$Id_sucursal){
+		try {
+			$q = $this->pdo->prepare('INSERT INTO user_sucu (Id_usuario, Id_sucursal) VALUES(?, ?)');
+			$q->bindParam(1,$Id_user);
+			$q->bindParam(2,$Id_sucursal);
+			$q->execute();
+			return $this->reactivar_use($Id_user);
+		} catch (PDOException $e) {
+			echo 'Error '.$e->getMessage();
+		}
+		return 1;
+	}
+	public function reactivar_use($Id_usuario){
+		try {
+			$q = $this->pdo->prepare('UPDATE usuario SET Estado = 1	WHERE Id_usuario = ?');
+			$q->bindParam(1,$Id_usuario);
 			$q->execute();
 			$this->pdo = null;
 			return 0;

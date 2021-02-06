@@ -175,7 +175,7 @@
 
 		public function get_cierre($fecha_inicial,$fecha_final){
 			try{
-				$q = $this->pdo->prepare('SELECT *,count(Id_cierre) AS Total FROM cierre WHERE Fecha BETWEEN "'.$fecha_inicial.'" AND "'.$fecha_final.'";');
+				$q = $this->pdo->prepare('SELECT count(Id_cierre) AS Total FROM cierre WHERE Fecha BETWEEN "'.$fecha_inicial.'" AND "'.$fecha_final.'";');
 				$q->execute();
 				return $q->fetch();
 			}catch(PDOException $e){

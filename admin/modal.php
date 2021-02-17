@@ -62,9 +62,9 @@
         <!-- Modal content-->
         <form enctype="multipart/form-data" id="form_edt_pro" method="post">
             <input type="hidden" name="up" value='ooo' id="name">
-        <div class="modal-content"  id="contenido-modal">
+            <div class="modal-content"  id="contenido-modal">
 
-        </div>
+            </div>
         </form>
     </div>
 </div>

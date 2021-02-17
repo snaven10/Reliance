@@ -716,6 +716,6 @@ function anular_facura(dato,tipo) {
         })
         .done(function(data) {
             $('#datos_anular_factura').html(data);
-        }); 
+        });
     }                       
 }

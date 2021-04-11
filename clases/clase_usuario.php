@@ -61,11 +61,26 @@ class usuario{
 	}
 	public function login_usuario($Usser, $Pass){
 		try{
-			$q = $this->pdo->prepare('SELECT * FROM usuario where Usuario = ? and Password = ?');
+			$q = $this->pdo->prepare('SELECT
+										usuario.Id_usuario,
+										Nivel,
+										Nombre,
+										sucursales.Id_sucursales,
+										Sucursal,
+										Tipo
+									FROM
+										usuario
+											INNER JOIN
+										user_sucu ON usuario.Id_usuario = user_sucu.Id_usuario
+										INNER JOIN
+										sucursales ON user_sucu.Id_sucursal = sucursales.Id_sucursales
+									WHERE
+										Usuario = ?
+											AND Password = ?');
 			$q->bindParam(1,$Usser);
 			$q->bindParam(2,$Pass);
 			$q->execute();
-			return $q->fetchAll();
+			return $q->fetch(PDO::FETCH_ASSOC);
 			$this->pdo = null;
 			return 0;
 		}catch(PDOException $e){
@@ -154,4 +169,3 @@ class usuario{
 		return 1;
 	}
 }
-?>

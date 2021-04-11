@@ -50,12 +50,12 @@ include '../clases/clase_producto.php';
 $producto = new producto();
 include '../clases/clase_traslados.php';
 $traslados = new traslados();
-$data = $traslados->get_id_reporte_trs($_GET['imp']);
+$data = $traslados->get_num_reporte_trs($_GET['imp']);
 	?>
 <link href='../css/bootstrap.min.css' rel='stylesheet'>
 <div class="container" style='width:189mm; height:10mm; text-align: center;' id='imp_rep'>
 	<table class='table table-striped table-bordered' id='tabla_datos'>
-		<CENTER><h3>REPORTE DE SALIDA TRASLADO DE PRODUCTO N <?php $entradas1 = $traslados->get_id_trs($_GET['imp']); echo $entradas1[0][2]." ".$entradas1[0][1] ?></h3></CENTER>
+		<CENTER><h3>REPORTE ENVIO TRASLADO DE PRODUCTO N <?php $entradas1 = $traslados->get_id_trs($_GET['imp']); echo $entradas1[0][2]." ".$entradas1[0][1] ?></h3></CENTER>
 		<thead>
 			<tr>
 				<th>Cod Producto</th>

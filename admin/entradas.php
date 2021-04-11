@@ -11,7 +11,11 @@
 	include '../menu/menu.php';
 	include '../clases/clase_producto.php';
 	$producto = new producto();
-	$data = $producto->get_producto();
+    if ($_SESSION['Tipo']) {
+	    $data = $producto->get_producto_list();
+    } else {
+        $data = $producto->get_producto($_SESSION['Id_sucursal']);
+    }
 	include '../clases/clase_proveedor.php';
 	$proveedor = new proveedor();
 	include '../clases/clase_ubicacion.php';
@@ -35,8 +39,8 @@
                     placeholder='Cod producto' required>
                 <datalist id="Cod_producto">
                     <?php
-								foreach ($data as $row){ ?>
-                    <option value="<?php echo $row['Cod_producto'] ?>"></option>
+				    foreach ($data as $row){ ?>
+                        <option value="<?php echo $row['Cod_producto'] ?>"></option>
                     <?php } ?>
                 </datalist><br>
                 <input type="number" class="form-control" id="Precio_compra" placeholder="Precio Compra" required><br>

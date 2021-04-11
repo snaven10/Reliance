@@ -52,7 +52,7 @@ if (!isset($_SESSION['Id']) && !isset($_SESSION['Nivel'])) {
                 <span class='sr-only'>Menu</span>
                 <span class='glyphicon glyphicon-plus' style='color: #fff;'></span>
             </button>
-            <a class='navbar-brand' style="cursor: pointer;" href="view_producto.php">Reliance</a>
+            <a class='navbar-brand' style="cursor: pointer;" href="view_producto.php">Reliance <?= $_SESSION['Sucursales'] ?></a>
         </div>
         <div class='collapse navbar-collapse navbar-ex1-collapse'>
             <ul class='nav navbar-nav'>
@@ -122,10 +122,10 @@ if (!isset($_SESSION['Id']) && !isset($_SESSION['Nivel'])) {
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="entradas.php" style="cursor: pointer;">Agregar Entradas</a></li>
-                        <li><a href="traslados_e.php" style="cursor: pointer;">Agregar Traslados</a></li>
+                        <li><a href="traslados_s.php" style="cursor: pointer;">Agregar Traslados</a></li>
+                        <li><a href="traslados_e.php" style="cursor: pointer;">Recibir Traslados</a></li>
                         <?php if (isset($_SESSION['Id']) && isset($_SESSION['Nivel']) && $_SESSION['Nivel'] ==2 || $_SESSION['Nivel'] ==3) { ?>
                         <li><a href="salidas.php" style="cursor: pointer;">Agregar Salidas</a></li>
-                        <li><a href="traslados_s.php" style="cursor: pointer;">Salida Traslados</a></li>
                         <?php } ?>
                     </ul>
                 </li>

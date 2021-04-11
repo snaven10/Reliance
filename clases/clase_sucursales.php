@@ -36,9 +36,10 @@ class sucursales{
 		}
 	}
 
-	public function mostrar_sucursales(){
+	public function mostrar_sucursales($Id){
 		try{
-			$q = $this->pdo->prepare('SELECT * FROM sucursales WHERE Id_sucursales != 1');
+			$q = $this->pdo->prepare('SELECT * FROM sucursales WHERE Id_sucursales != ?');
+			$q->bindParam(1,$Id);
 			$q->execute();
 			return $q->fetchAll();
 			$this->pdo = null;

@@ -81,4 +81,3 @@
 	if (!empty($_GET['del'])) {
 		session_unset();
 	}
- ?>

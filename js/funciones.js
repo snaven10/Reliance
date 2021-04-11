@@ -204,14 +204,15 @@ $(function(event){
     });
     //funciones de entradas y salidas
     $(".aEntrada").click(function(event) {
-        var N_fact = $('#N_factura').val(), 
+        var N_fact = $('#N_factura').val(),
         Proveedor = $('#Proveedor').val(),
         Cod = $('#Cod').val(),
-        Can = $('#Cantidad').val(),
+        Can = $('#Cantidad').val() * 1,
         Pre_c = $('#Precio_compra').val(),
         Pre_v = $('#Precio_Venta').val(),
         Des = $('#Descuento').val(),
         Nom = $('#Nombre_proc').val();
+        console.log(Can);
         if (N_fact == '') {
             $("#N_factura").after('<p class="text-danger">Este campo es obligatorio</p>');
             $('#N_factura').closest('.form-group').addClass('has-error');

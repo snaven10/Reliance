@@ -208,12 +208,12 @@
 							return 1;
 						}
 
-						public function add_trs($Id_sucursales,$Fecha,$Numero){
+						public function add_trs($Numero,$Id_sucursal,$Id_sucursal_sa){
 							try {
-								$q = $this->pdo->prepare('INSERT INTO salidas_trs(Id_sucursales,Fecha,Numero) values(?,?,?)');
-								$q->bindParam(1,$Id_sucursales);
-								$q->bindParam(2,$Fecha);
-								$q->bindParam(3,$Numero);
+								$q = $this->pdo->prepare('INSERT INTO salidas_trs(Numero,Id_sucursal,Id_sucursal_sa) values(?,?,?)');
+								$q->bindParam(1,$Numero);
+								$q->bindParam(2,$Id_sucursal);
+								$q->bindParam(3,$Id_sucursal_sa);
 								$q->execute();
 								$this->pdo = null;
 								return 0;

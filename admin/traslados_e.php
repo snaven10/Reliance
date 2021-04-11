@@ -11,7 +11,7 @@ if (isset($_SESSION['N_traslado'][0])) {
 include '../menu/menu.php';
 include '../clases/clase_producto.php';
 $producto = new producto();
-$data = $producto->get_producto();
+$data = $producto->get_producto($_SESSION['Id_sucursal']);
 include '../clases/clase_proveedor.php';
 $proveedor = new proveedor();
 include '../clases/clase_ubicacion.php';

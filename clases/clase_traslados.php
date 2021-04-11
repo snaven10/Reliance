@@ -52,6 +52,18 @@
 							}
 						}
 
+						public function get_num_reporte_trs($id){
+							try{
+								$q = $this->pdo->prepare('SELECT * FROM reporte_trs where Id_salidas_trs = ?');
+								$q->bindParam(1,$id);
+								$q->execute();
+								return $q->fetchAll();
+								$this->pdo = null;
+							}catch(PDOException $e){
+								echo 'Error '.$e->getMessage();
+							}
+						}
+
 						public function get_id_trs($id){
 							try{
 								$q = $this->pdo->prepare('SELECT * FROM salidas_trs where Id_salidas_trs = ?');

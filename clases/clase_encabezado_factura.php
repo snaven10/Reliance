@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class encabezado_factura extends cn
 {
 	public function get_encabezado_factura()

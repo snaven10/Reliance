@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class cod_reemplazo extends cn
 {
 	public function get_cod_reemplazo()

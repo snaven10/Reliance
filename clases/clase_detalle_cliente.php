@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class detalle_cliente extends cn
 {
 	public function get_detalle_cliente()

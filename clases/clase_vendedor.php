@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class vendedor extends cn
 {
 	public function get_vendedor()

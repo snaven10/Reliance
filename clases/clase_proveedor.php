@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class proveedor extends cn
 {
 	public function get_proveedor()

@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class cierre extends cn
 {
 	public function get_cierre_general()

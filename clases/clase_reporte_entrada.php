@@ -1,5 +1,5 @@
 <?php
-include "cn.php";
+include_once "cn.php":
 class reporte_entrada extends cn
 {
 	public function get_reporte_entrada()

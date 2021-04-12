@@ -1,5 +1,5 @@
 <?php
-include_once "cn.php":
+include_once "cn.php";
 class entradas extends cn
 {
 	public function get_entradas()

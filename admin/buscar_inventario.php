@@ -3,7 +3,7 @@
 	$producto = new producto();
 	include '../clases/clase_ubicacion.php';
 	$ubicacion = new ubicacion();
-	$data_ubicacion = $ubicacion->get_ubicacion();
+	$data_ubicacion = $ubicacion->get_ubicacion($_SESSION['Id_sucursal']);
 	include '../clases/clase_precio.php';
 	$precio = new precio();
 	if ($_POST['tipo']==1) { 

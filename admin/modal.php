@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class='btn btn-success' value='Siguiente'>
+                    <input type="submit" class='btn btn-success' id="Siguiente" value='Siguiente'>
                     <a href="#" class="btn btn-danger" data-dismiss="modal" onclick="$('#Modal_fac').hide();">Cerrar</a>
                 </div>
             </form>

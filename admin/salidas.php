@@ -4,7 +4,7 @@ include '../menu/menu.php';
 include '../clases/clase_producto.php';
 $producto = new producto();
 
-$data = $producto->get_producto();
+$data = $producto->get_producto($_SESSION['Sucursal']);
 include '../clases/clase_proveedor.php';
 $proveedor = new proveedor();
 include '../clases/clase_ubicacion.php';

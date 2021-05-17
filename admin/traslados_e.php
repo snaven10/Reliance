@@ -18,7 +18,7 @@ include '../clases/clase_ubicacion.php';
 $ubicacion = new ubicacion();
 include '../clases/clase_sucursales.php';
 $sucursales = new sucursales();
-$sucursal = $sucursales->mostrar_sucursales();
+$sucursal = $sucursales->mostrar_sucursales($_SESSION['Sucursal']);
 ?>
 <ol class="breadcrumb">
 <li><a href="../admin/" style="cursor: pointer;">Reliance</a></li>

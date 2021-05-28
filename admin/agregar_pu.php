@@ -40,7 +40,7 @@ if ($_POST['tipo'] == 1) {
 						<?php } ?>
 					</datalist><br>
 					<b>Cantidad:</b>
-					<input type="number" value="<?php echo $row_precios[1]; ?>" class="form-control" id="Cantidad-s" placeholder="Cantidad" required><br>
+					<input type="text" value="<?php echo $row_precios[1]; ?>" class="form-control" id="Cantidad-s" placeholder="Cantidad" pattern="^\d*(\.\d{1})?\d{0,1}$" required><br>
 					<b>Descripcion:</b>
 					<input type="text" class="form-control" id="Descripcion-s" placeholder="Descripcion" required>
 
@@ -75,9 +75,9 @@ if ($_POST['tipo'] == 1) {
 						<?php } ?>
 					</datalist><br>
 					<b>Precio Compra:</b>
-					<input type="number" value="<?php echo $row_precios[2]; ?>" class="form-control" id="Precio_compra" placeholder="Precio Compra" required><br>
+					<input type="text" onkeypress="return filterFloat(event,this);" value="<?php echo $row_precios[2]; ?>" class="form-control" id="Precio_compra" placeholder="Precio Compra" required><br>
 					<b>Cantidad:</b>
-					<input type="number" value="0" class="form-control" id="Cantidad" placeholder="Cantidad" required>
+					<input type="text" onkeypress="return filterFloat(event,this,1);" value="0" class="form-control" id="Cantidad" placeholder="Cantidad" pattern="^\d*(\.\d{1})?\d{0,1}$" required>
 
 				</div>
 				<div class="col-xs-6">
@@ -86,9 +86,9 @@ if ($_POST['tipo'] == 1) {
 					<b>Nombre Producto:</b>
 					<input type="text" value="<?php echo $key['Nombre']; ?>" class="form-control" id="Nombre_proc" placeholder="Nombre_producto" disabled><br>
 					<b>Precio Venta:</b>
-					<input type="number" value="<?php echo $row_precios[3]; ?>" class="form-control" id="Precio_Venta" placeholder="Precio Venta" required><br>
+					<input type="text" onkeypress="return filterFloat(event,this);" value="<?php echo $row_precios[3]; ?>" class="form-control" id="Precio_Venta" placeholder="Precio Venta" required><br>
 					<b>Descuento:</b>
-					<input type="number" value="<?php echo $row_precios[4]; ?>" class="form-control" id="Descuento" placeholder="Descuento" required>
+					<input type="text" onkeypress="return filterFloat(event,this,1);" value="<?php echo $row_precios[4]; ?>" class="form-control" id="Descuento" placeholder="Descuento" required>
 					<input type="hidden" value="<?php echo $key['Nombre']; ?>" class="form-control" id="Nombre_proc" placeholder="Nombre_producto">
 				</div>
 			</div>

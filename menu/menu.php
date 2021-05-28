@@ -52,7 +52,7 @@ if (!isset($_SESSION['Id']) && !isset($_SESSION['Nivel'])) {
                 <span class='sr-only'>Menu</span>
                 <span class='glyphicon glyphicon-plus' style='color: #fff;'></span>
             </button>
-            <a class='navbar-brand' style="cursor: pointer;" href="view_producto.php">Reliance <?= $_SESSION['Sucursales'] ?></a>
+            <a class='navbar-brand' style="cursor: pointer;" href="view_producto.php">Reliance <?= $_SESSION['Sucursal'] ?></a>
         </div>
         <div class='collapse navbar-collapse navbar-ex1-collapse'>
             <ul class='nav navbar-nav'>

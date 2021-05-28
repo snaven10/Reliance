@@ -46,6 +46,7 @@
 									<thead>
 										<tr>
 											<th>Cod_producto</th>
+											<th>Cod_oem</th>
 											<th>Nombre</th>
 											<th>Cantidad</th>
 											<th>Estante</th>
@@ -64,6 +65,7 @@
 												?>
 											<tr style="cursor: pointer; border: 1px solid #000;" onclick="modal('<?php echo $row['Id_producto'] ?>');" class="pag pag-<?php echo $h; ?>">
 												<td style="border: 1px solid #000;"><?php echo $row['Cod_producto'] ?></td>
+												<td style="border: 1px solid #000;"><?php echo $row['Cod_oem'] ?></td>
 												<td style="border: 1px solid #000;"><?php echo $row['Nombre'] ?></td>
 												<td style="border: 1px solid #000;"><?php $precio1 = $precio->get_precio_id_producto($row['Id_producto']); echo $precio1[0][1]; ?></td>
 												<td style="border: 1px solid #000;"><?php echo 'Estante: '.$row['Estante'] ?></td>
